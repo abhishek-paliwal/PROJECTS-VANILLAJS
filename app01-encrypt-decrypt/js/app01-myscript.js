@@ -1,12 +1,8 @@
-async function demodemo() {
+async function encryptOrDecryptThisText() {
     event.preventDefault() ; // Add this line at the top to work with bootstrap forms
     //
     let inputTextBox1message = document.getElementById("inputTextBox1").value;
-    let passphrase = document.getElementById("secretPassphrase").value;
-    //const outputEncryptedTextArea = document.getElementById("outputEncryptedTextArea").value ;
-    //const outputDecryptedTextArea = document.getElementById("outputDecryptedTextArea").value ;
-    //const passphrase = `yourPassphrase`; // what the private key is encrypted with
-    // const passphrase = secretPassphrase ; // what the private key is encrypted with
+    let passphrase = document.getElementById("secretPassphrase").value; // what the private key is encrypted with
 
     //////////////////////////////////////////////////
     // GENERATE KEYS
@@ -14,47 +10,47 @@ async function demodemo() {
         type: 'ecc', // Type of the key, defaults to ECC
         curve: 'curve25519', // ECC curve name, defaults to curve25519
         userIDs: [{ name: 'Jon Smith', email: 'jon@example.com' }], // you can pass multiple user IDs
-        passphrase: passphrase, // protects the private key
+        passphrase: 'this is a very long example passphrase', // protects the private key
         format: 'armored' // output key format, defaults to 'armored' (other options: 'binary' or 'object')
     });
     ////
-    console.log(privateKey);     // '-----BEGIN PGP PRIVATE KEY BLOCK ... '
-    console.log(publicKey);      // '-----BEGIN PGP PUBLIC KEY BLOCK ... '
-    console.log(revocationCertificate); // '-----BEGIN PGP PUBLIC KEY BLOCK ... '
+    //console.log(privateKey);     // '-----BEGIN PGP PRIVATE KEY BLOCK ... '
+    //console.log(publicKey);      // '-----BEGIN PGP PUBLIC KEY BLOCK ... '
+    //console.log(revocationCertificate); // '-----BEGIN PGP PUBLIC KEY BLOCK ... '
     //////////////////////////////////////////////////
 
     // put keys in backtick (``) to avoid errors caused by spaces or tabs
-    const publicKeyArmored = `-----BEGIN PGP PUBLIC KEY BLOCK-----
-    
-xjMEYjORhRYJKwYBBAHaRw8BAQdAwqEqhe8zDK2vscWV5a2suE1ctfRJsNHN
-MOOK6hv9rp3NG0pvbiBTbWl0aCA8am9uQGV4YW1wbGUuY29tPsKMBBAWCgAd
-BQJiM5GFBAsJBwgDFQgKBBYAAgECGQECGwMCHgEAIQkQPP9y68ymayMWIQQS
-heQmPLYapWaMDbw8/3LrzKZrI43UAQC6C7kYmOZYfxO1QO4/a95mprlNJ88l
-8HN3SNv6CuVz/wEAw00aUpDr648Qp6sA4BDlsn1A7KjhTDXhabK1TFweUgPO
-OARiM5GFEgorBgEEAZdVAQUBAQdAwG3fciz0IfPLTde5fO2oP44kijfUTm/L
-dUy0ir35Z00DAQgHwngEGBYIAAkFAmIzkYUCGwwAIQkQPP9y68ymayMWIQQS
-heQmPLYapWaMDbw8/3LrzKZrI4GtAP9hgaGEM15sW6J+jQ68dGJ4S5ni3Eba
-sXarAVF2E4nx5gD/UNaitb7k9YvUm2PbV6YnecSzgiuorerot5Qt3qa1UAM=
-=u/Hi
------END PGP PUBLIC KEY BLOCK-----`; // encrypted public key
-
     const privateKeyArmored = `-----BEGIN PGP PRIVATE KEY BLOCK-----
 
-xYYEYjORhRYJKwYBBAHaRw8BAQdAwqEqhe8zDK2vscWV5a2suE1ctfRJsNHN
-MOOK6hv9rp3+CQMIbAcEgKy5YRngEyQ5h11pJQTh/V8KvhYPf7ktzk2m0dj/
-R47ynCpu4vtcHkqzDhBhtVbN5tVEUWpTYBtyDLDR8J4fksGfrGSGABU9vxwe
-Ws0bSm9uIFNtaXRoIDxqb25AZXhhbXBsZS5jb20+wowEEBYKAB0FAmIzkYUE
-CwkHCAMVCAoEFgACAQIZAQIbAwIeAQAhCRA8/3LrzKZrIxYhBBKF5CY8thql
-ZowNvDz/cuvMpmsjjdQBALoLuRiY5lh/E7VA7j9r3mamuU0nzyXwc3dI2/oK
-5XP/AQDDTRpSkOvrjxCnqwDgEOWyfUDsqOFMNeFpsrVMXB5SA8eLBGIzkYUS
-CisGAQQBl1UBBQEBB0DAbd9yLPQh88tN17l87ag/jiSKN9ROb8t1TLSKvfln
-TQMBCAf+CQMIJ70d/dOU9nHgp6Q5delpXCHI3iBUpQYLkFRIS/bQs7iEHBa2
-IEzj3CBBlbySjmNUkhfE3YuMpHiS42MbtIDnWOm7mGniqTQNPjLMRu7TC8J4
-BBgWCAAJBQJiM5GFAhsMACEJEDz/cuvMpmsjFiEEEoXkJjy2GqVmjA28PP9y
-68ymayOBrQD/YYGhhDNebFuifo0OvHRieEuZ4txG2rF2qwFRdhOJ8eYA/1DW
-orW+5PWL1Jtj21emJ3nEs4IrqK3q6LeULd6mtVAD
-=D7Sn
------END PGP PRIVATE KEY BLOCK-----`; // encrypted private key
+xYYEYjOt1xYJKwYBBAHaRw8BAQdA91H8S03rmIaVqfdSQ92aOL1hkFVXepf4
+oFUqM6nj1q/+CQMIAFH7cjgN+R7gnlaIGP6HZ52sNdXKApkOxZg1ctZMp8TF
+hYKLOah+B68zeLaLUNhr0Nlsf81HJHEQFP7W2Sxz45PrE14p0rFZNV7vJJlM
+/c0bSm9uIFNtaXRoIDxqb25AZXhhbXBsZS5jb20+wowEEBYKAB0FAmIzrdcE
+CwkHCAMVCAoEFgACAQIZAQIbAwIeAQAhCRDCP6eRJ88FZBYhBHJbxk+Cr4v2
+xlpzIMI/p5EnzwVkk5sA/RvJeNv1BFE2tW7kELEuAY0CN6zj+aAQ+jso3oOf
+AgG/AQDRUL+EJ9T6IzypjE1lgaoK0ifChveb0PetTelkzdsyBMeLBGIzrdcS
+CisGAQQBl1UBBQEBB0BowYuyF/SGTFoX1agknG3e4wsaqtBnzEtdbHb17RMp
+dwMBCAf+CQMIw8QoTy2ob2LgMXA4DvcX1SQ9Z+LWi9G1bEhW0S6cD8ChuH1P
+lmxSYeI4jj73zYJuxN+cEYd9X4UOcZIEbYobWZWDyyxXORfdkaJ4aTjDH8J4
+BBgWCAAJBQJiM63XAhsMACEJEMI/p5EnzwVkFiEEclvGT4Kvi/bGWnMgwj+n
+kSfPBWT1qAEAkOr5D66gEiye8aXgnPbyJRaDf+GYET8Nr9KC0MH+EXkA/inB
+wvytB7ifcRPJ2kblzENC5fvR4x7tfaQpUCg8dA0H
+=jgbu
+-----END PGP PRIVATE KEY BLOCK-----` ; // encrypted private key
+//
+const publicKeyArmored = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+xjMEYjOt1xYJKwYBBAHaRw8BAQdA91H8S03rmIaVqfdSQ92aOL1hkFVXepf4
+oFUqM6nj1q/NG0pvbiBTbWl0aCA8am9uQGV4YW1wbGUuY29tPsKMBBAWCgAd
+BQJiM63XBAsJBwgDFQgKBBYAAgECGQECGwMCHgEAIQkQwj+nkSfPBWQWIQRy
+W8ZPgq+L9sZacyDCP6eRJ88FZJObAP0byXjb9QRRNrVu5BCxLgGNAjes4/mg
+EPo7KN6DnwIBvwEA0VC/hCfU+iM8qYxNZYGqCtInwob3m9D3rU3pZM3bMgTO
+OARiM63XEgorBgEEAZdVAQUBAQdAaMGLshf0hkxaF9WoJJxt3uMLGqrQZ8xL
+XWx29e0TKXcDAQgHwngEGBYIAAkFAmIzrdcCGwwAIQkQwj+nkSfPBWQWIQRy
+W8ZPgq+L9sZacyDCP6eRJ88FZPWoAQCQ6vkPrqASLJ7xpeCc9vIlFoN/4ZgR
+Pw2v0oLQwf4ReQD+KcHC/K0HuJ9xE8naRuXMQ0Ll+9HjHu19pClQKDx0DQc=
+=Goo1
+-----END PGP PUBLIC KEY BLOCK-----` ; // encrypted public key
 
     // READ PUBLIC KEY
     const publicKeyNew = await openpgp.readKey({ armoredKey: publicKeyArmored });
@@ -65,25 +61,42 @@ orW+5PWL1Jtj21emJ3nEs4IrqK3q6LeULd6mtVAD
         passphrase
     });
     //console.log(privateKeyNew);
-    console.log(passphrase);
+    //console.log(passphrase);
 
     const encrypted = await openpgp.encrypt({
         message: await openpgp.createMessage({ text: inputTextBox1message }), // input as Message object
         encryptionKeys: publicKeyNew,
-        signingKeys: privateKeyNew // optional
+        signingKeys: privateKeyNew // before doing this, this key should have already been decrypted.
     });
-    console.log(encrypted); // '-----BEGIN PGP MESSAGE ... END PGP MESSAGE-----'
+    //console.log(encrypted); // '-----BEGIN PGP MESSAGE ... END PGP MESSAGE-----'
 
-    const message = await openpgp.readMessage({
-        armoredMessage: encrypted // parse armored message
-    });
+    /********************************/
+    // CHECK WHETHER THE TEXT TO DECRYPT IS VALID PGP MESSAGE (means a valid armored message)
+    let re = new RegExp('-----BEGIN PGP MESSAGE') ;
+    let validPGPmessage ; 
     //
+    if ( re.test(inputTextBox1message) ) {
+        validPGPmessage = inputTextBox1message ; 
+        console.log('>> FOUND VALUE IN INPUT BOX: PGP-Encrypted Message') ; 
+    } else {
+        validPGPmessage = encrypted ;
+        console.log('>> FOUND VALUE IN INPUT BOX: Plain Text Message') ; 
+    }
+    //
+    /********************************/
+    const message = await openpgp.readMessage({ 
+        armoredMessage: validPGPmessage // parse armored message 
+    });  
+    //console.log(message)  ; 
+    /********************************/
+
     const { data: decrypted, signatures } = await openpgp.decrypt({
         message,
-        verificationKeys: publicKeyNew, // optional
-        decryptionKeys: privateKeyNew
+        verificationKeys: publicKeyNew, // optional.
+        decryptionKeys: privateKeyNew // before doing this, this key should have already been decrypted.
     });
-    console.log(decrypted); // 'Hello, World!'
+    //console.log(decrypted); // 'Hello, World!'
+    //
     // check signature validity (signed messages only)
     try {
         await signatures[0].verified; // throws on invalid signature
