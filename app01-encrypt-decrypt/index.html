@@ -10,9 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
+    <!-- BEGIN: JS Scripts needed for this App -->
+    <script src="js/loadNavigationBar.js"></script>
     <script src="js/openpgp.min.js"></script>
     <script src="js/app01-myscript.js"></script>
+    <!-- BEGIN: JS Scripts needed for this App -->
 
+    <!-- BEGIN: Styles -->
     <style type="text/css">
         img.logo {
             display: block;
@@ -21,12 +25,15 @@
             padding: 5px;
         }
     </style>
+    <!-- END: Styles -->
 
     <title>Encrypt And Decrypt Text - App</title>
 </head>
 
-<body>
+<body onload="loadNavigationBar()">
 <div class="container">
+    <div id="displayContentForNavBar"></div>
+
     <div class="m-3">
     <img class="logo"
         src="http://downloads.concepro.com/dropbox-public-files/logos/1-logos-pali/Signature-Stamp-Pali-Name-Logo-Wide-New-Dark.png">
@@ -50,15 +57,14 @@
     <button type="submit" class="btn btn-primary" onclick="encryptOrDecryptThisText();">Encrypt OR Decrypt</button>
     </form>
    
-    <hr>
 
-    <div class="mb-3">
-        <label for="outputEncryptedTextArea" class="form-label"><strong>Encrypted Text Appears below</strong></label>
+    <div class="my-3">
+        <label for="outputEncryptedTextArea" class="form-label"><strong>Encrypted Text From Input</strong></label>
         <textarea class="form-control bg-danger text-white" id="outputEncryptedTextArea" rows="5"></textarea>
     </div>
 
-    <div class="mb-3">
-        <label for="outputDecryptedTextArea" class="form-label"><strong>Decrypted Text Appears below</strong></label>
+    <div class="my-3">
+        <label for="outputDecryptedTextArea" class="form-label"><strong>Decrypted Text From Input</strong></label>
         <textarea class="form-control bg-success text-white" id="outputDecryptedTextArea" rows="5"></textarea>
     </div>
 
@@ -67,7 +73,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-</div>        
-</body>
+</div>   
 
+</body>
 </html>
