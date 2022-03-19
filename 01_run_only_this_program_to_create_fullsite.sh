@@ -32,8 +32,8 @@ function FUNC2_CREATE_INDEX_HOMEPAGE_LISTING_ALL_CURRENT_APPS () {
         ##
         appSubDir_basename=$(basename $appSubDir) ;
         echo >> $TMPFILE ; 
-        echo "<div class='my-2 rounded bg-light'>" >> $TMPFILE
-        echo "<a href='apps/$appSubDir_basename/index.html'>$appSubDir_basename" >> $TMPFILE
+        echo "<div class='m-2 p-2 rounded bg-warning'>" >> $TMPFILE
+        echo "<strong><a href='apps/$appSubDir_basename/index.html'>$appSubDir_basename</a></strong>" >> $TMPFILE
         echo "</div>"  >> $TMPFILE
     done
     ##    
