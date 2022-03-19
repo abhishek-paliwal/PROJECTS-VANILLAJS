@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- BEGIN: Custom Styles -->
+    <link href="../../css/mainsite.css" rel="stylesheet">
+    <!-- END: Custom Styles -->
+
+    
+    <!-- BEGIN: JS Scripts needed for this App -->
+    <script src="js/loadNavigationBar.js"></script>
+    <script src="js/openpgp.min.js"></script>
+    <script src="js/app01-encrypt-decrypt.js"></script>
+    <!-- BEGIN: JS Scripts needed for this App -->
+
+
+    <title>Encrypt And Decrypt Text - App</title>
+</head>
+
+<body onload="loadNavigationBar()">
+<div class="container">
+    <div id="displayContentForNavBar"></div>
+
+    <h1>APP - Text Encryption & Decryption (OpenPGP)</h1>
+
+    <form class="p-3 border border-5 rounded bg-light">
+
+    <div class="mb-3">
+        <label for="inputTextBox1" class="form-label"><strong>Enter Text to Encrypt/Decrypt (Allowed: Plain-Text OR PGP-Encrypted-Text)</strong></label>
+        <textarea class="form-control" id="inputTextBox1" rows="4">Delete this example text with phone number: 000 000 0000</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="secretPassphrase" class="form-label"><strong>Enter Secret Passphrase Here</strong></label>
+        <textarea class="form-control" id="secretPassphrase" rows="1">pali.2022</textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" onclick="encryptOrDecryptThisText();">Encrypt OR Decrypt</button>
+    </form>
+   
+
+    <div class="my-3">
+        <label for="outputEncryptedTextArea" class="form-label"><strong>Encrypted Text From Input</strong></label>
+        <textarea class="form-control bg-danger text-white" id="outputEncryptedTextArea" rows="5"></textarea>
+    </div>
+
+    <div class="my-3">
+        <label for="outputDecryptedTextArea" class="form-label"><strong>Decrypted Text From Input</strong></label>
+        <textarea class="form-control bg-success text-white" id="outputDecryptedTextArea" rows="5"></textarea>
+    </div>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</div>   
+
+</body>
+</html>
