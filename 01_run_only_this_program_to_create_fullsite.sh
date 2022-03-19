@@ -1,5 +1,7 @@
 #/bin/bash
 ##################################################################################
+## ONLY RUN THIS FILE TO UPDATE THE WHOLE PROJECT DELIVERABLES.
+##################################################################################
 
 PROJECTDIR="$REPO_VANILLAJS" ;
 APPSDIR="$PROJECTDIR/apps" ;
@@ -24,7 +26,10 @@ function FUNC2_CREATE_INDEX_HOMEPAGE_LISTING_ALL_CURRENT_APPS () {
     echo > $TMPFILE ## initialize this file
     ##
     ## CREATING HOMEPAGE CONTENT FROM APPS DIRECTORIES     
-    for appSubDir in $(fd -I -t d --search-path="$APPSDIR"); do
+    for appSubDir in $(fd -I -t d -d1 --search-path="$APPSDIR"); do
+        ##
+        echo ">> Found app sub dir => $appSubDir" ; 
+        ##
         appSubDir_basename=$(basename $appSubDir) ;
         echo "<div class='mb-3 border border-5 rounded bg-primary'>" >> $TMPFILE
         echo "<a href='apps/$appSubDir_basename/index.html'>$appSubDir_basename" >> $TMPFILE
@@ -41,6 +46,10 @@ function FUNC2_CREATE_INDEX_HOMEPAGE_LISTING_ALL_CURRENT_APPS () {
 ## CALL FUNCTIONS
 FUNC1_COPY_MAIN_NAVBAR_JS_TO_ALL_APPS ; 
 FUNC2_CREATE_INDEX_HOMEPAGE_LISTING_ALL_CURRENT_APPS ; 
+
+## FINAL MESSAGE
+figlet "VANILLA-JS PROJECT UPDATED." ; 
+
 
 
 
