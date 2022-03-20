@@ -3,7 +3,7 @@ function loadNavigationBar() {
     const displayContentForNavBar = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
     <a class="navbar-brand" href="https://www.abhishekpali.us">
-      <img src="https://downloads.concepro.com/dropbox-public-files/logos/1-logos-pali/Favicon-Pali-Website.png" alt="" width="24" height="24" class="d-inline-block align-text-top">
+      <img src="https://downloads.concepro.com/dropbox-public-files/logos/1-logos-pali/Favicon-Pali-Website.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
       Apps-List
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
