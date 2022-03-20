@@ -38,7 +38,7 @@
     <div class="mb-3">
         <label for="inputTextBox1" class="form-label"><strong>Enter Text to Encrypt/Decrypt (Allowed: Plain-Text OR PGP-Encrypted-Text)</strong></label>
         <button  type="button" class="mb-2 btn btn-secondary" onclick="reloadPageSetDefaults();">Clear Input</button>
-        <textarea class="form-control" id="inputTextBox1" rows="4"></textarea>
+        <textarea class="form-control" id="inputTextBox1" rows="10"></textarea>
     </div>
     
     <button type="submit" class="btn btn-primary" onclick="encryptOrDecryptThisText();">Encrypt OR Decrypt</button>
@@ -48,13 +48,14 @@
     <div class="my-3">
         <label for="outputEncryptedTextArea" class="form-label"><strong>Encrypted Text From Input</strong></label>
         <button type="button" class="mb-2 btn btn-secondary" onclick="copyEncryptedText();">Copy Encrypted Text</button>
-        <button type="button" class="mb-2 btn btn-success" onclick="shareEncryptedText();"><i class="bi bi-whatsapp"></i> Share</button>
+        <button type="button" class="mb-2 btn btn-success" onclick="shareEncryptedText();"><i class="bi bi-whatsapp"></i> Share on WhatsApp</button>
         <textarea class="form-control bg-danger text-white" id="outputEncryptedTextArea" rows="5"></textarea>
     </div>
 
     <div class="my-3">
         <label for="outputDecryptedTextArea" class="form-label"><strong>Decrypted Text From Input</strong></label>
         <button type="button" class="mb-2 btn btn-secondary" onclick="copyDecryptedText();">Copy Decrypted Text</button>
+        <button type="button" class="mb-2 btn btn-success" onclick="shareDecryptedText();"><i class="bi bi-whatsapp"></i> Share on WhatsApp</button>
         <textarea class="form-control bg-success text-white" id="outputDecryptedTextArea" rows="5"></textarea>
     </div>
 

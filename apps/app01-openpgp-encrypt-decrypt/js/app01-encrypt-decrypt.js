@@ -136,10 +136,17 @@ function copyDecryptedText() {
 /*****************************************/
 function shareEncryptedText() {
   /* Get the text field */
-  let textToShare = document.getElementById("outputEncryptedTextArea").value ;
+  let getTextToShare = document.getElementById("outputEncryptedTextArea").value ;
+  let  textToShare = 'https://wa.me/?text=' + encodeURIComponent(getTextToShare) ; 
+  //console.log(textToShare) ;
+  window.open(textToShare) ; 
+}
 
-  console.log(textToShare) ;
-
-  textToShareFinal = 'https://wa.me/?text=' + encodeURIComponent(textToShare) ; 
-  window.open(textToShareFinal) ; 
+/*****************************************/
+function shareDecryptedText() {
+  /* Get the text field */
+  let getTextToShare = document.getElementById("outputDecryptedTextArea").value ;
+  let  textToShare = 'https://wa.me/?text=' + encodeURIComponent(getTextToShare) ; 
+  //console.log(textToShare) ;
+  window.open(textToShare) ; 
 }
