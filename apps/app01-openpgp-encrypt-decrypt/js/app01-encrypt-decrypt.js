@@ -1,26 +1,17 @@
+/*****************************************/
+// following is the main function to do all encrypting/decryption operations
 async function encryptOrDecryptThisText() {
     event.preventDefault() ; // Add this line at the top to work with bootstrap forms
     //
+    // what the private key is encrypted with (in base64 encoding)
+    let passphrase = atob('cGFsaS4yMDIy') ; 
+    //
     let inputTextBox1message = document.getElementById("inputTextBox1").value;
-    let passphrase = document.getElementById("secretPassphrase").value; // what the private key is encrypted with
 
     //////////////////////////////////////////////////
-    // GENERATE KEYS
-    const { privateKey, publicKey, revocationCertificate } = await openpgp.generateKey({
-        type: 'ecc', // Type of the key, defaults to ECC
-        curve: 'curve25519', // ECC curve name, defaults to curve25519
-        userIDs: [{ name: 'Jon Smith', email: 'jon@example.com' }], // you can pass multiple user IDs
-        passphrase: 'this is a very long example passphrase', // protects the private key
-        format: 'armored' // output key format, defaults to 'armored' (other options: 'binary' or 'object')
-    });
-    ////
-    //console.log(privateKey);     // '-----BEGIN PGP PRIVATE KEY BLOCK ... '
-    //console.log(publicKey);      // '-----BEGIN PGP PUBLIC KEY BLOCK ... '
-    //console.log(revocationCertificate); // '-----BEGIN PGP PUBLIC KEY BLOCK ... '
-    //////////////////////////////////////////////////
 
-    // put keys in backtick (``) to avoid errors caused by spaces or tabs
-    const privateKeyArmored = `-----BEGIN PGP PRIVATE KEY BLOCK-----
+// put keys in backtick (``) to avoid errors caused by spaces or tabs
+const privateKeyArmored = `-----BEGIN PGP PRIVATE KEY BLOCK-----
 
 xYYEYjOt1xYJKwYBBAHaRw8BAQdA91H8S03rmIaVqfdSQ92aOL1hkFVXepf4
 oFUqM6nj1q/+CQMIAFH7cjgN+R7gnlaIGP6HZ52sNdXKApkOxZg1ctZMp8TF
@@ -107,5 +98,48 @@ Pw2v0oLQwf4ReQD+KcHC/K0HuJ9xE8naRuXMQ0Ll+9HjHu19pClQKDx0DQc=
 
     document.getElementById("outputEncryptedTextArea").innerHTML = encrypted;
     document.getElementById("outputDecryptedTextArea").innerHTML = decrypted;
+}
 
+/*****************************************/
+function reloadPageSetDefaults () {
+    location.reload(); // reload page and reset to defaults
+}
+
+/*****************************************/
+function copyEncryptedText() {
+  /* Get the text field */
+  let copyText = document.getElementById("outputEncryptedTextArea");
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  /* Copy the text inside the text field */
+  //navigator.clipboard.writeText(copyText.value); 
+  document.execCommand("copy") ; // execute system command
+  /* Alert the copied text */
+  alert("Copied encrypted text.");
+}
+
+/*****************************************/
+function copyDecryptedText() {
+  /* Get the text field */
+  let copyText = document.getElementById("outputDecryptedTextArea");
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  /* Copy the text inside the text field */
+  //navigator.clipboard.writeText(copyText.value); 
+  document.execCommand("copy") ; // execute system command
+  /* Alert the copied text */
+  alert("Copied decrypted text.");
+}
+
+/*****************************************/
+function shareEncryptedText() {
+  /* Get the text field */
+  let textToShare = document.getElementById("outputEncryptedTextArea").value ;
+
+  console.log(textToShare) ;
+
+  textToShareFinal = 'https://wa.me/?text=' + encodeURIComponent(textToShare) ; 
+  window.open(textToShareFinal) ; 
 }
