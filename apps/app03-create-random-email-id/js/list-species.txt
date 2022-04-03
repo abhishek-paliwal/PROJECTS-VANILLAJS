@@ -4,6 +4,7 @@ badger
 bat
 bear
 beetle
+bull
 butterfly
 camel
 cat
@@ -41,7 +42,6 @@ hamster
 hare
 hawk
 hedgehog
-bull
 hippo
 honeybee
 horse
@@ -73,8 +73,6 @@ pig
 pigeon
 puppy
 rabbit
-raccoon
-rat
 raven
 reindeer
 rhino

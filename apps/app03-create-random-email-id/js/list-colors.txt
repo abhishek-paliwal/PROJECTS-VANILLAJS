@@ -34,7 +34,6 @@ gray
 green
 grey
 hotpink
-hue
 indigo
 ivory
 jade
@@ -49,7 +48,6 @@ magenta
 maroon
 mauve
 mustard
-ocher
 olive
 orange
 orchid
@@ -70,14 +68,12 @@ salmon
 sapphire
 scarlet
 seagreen
-secondary
 sepia
-shade
+shaded
 shamrock
 sienna
 silver
 slate
-spectrum
 steelblue
 tan
 tangerine
@@ -85,7 +81,7 @@ taupe
 teal
 terracotta
 thistle
-tint
+tinted
 topaz
 turquoise
 ultramarine

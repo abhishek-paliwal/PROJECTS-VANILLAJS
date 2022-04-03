@@ -32,16 +32,19 @@
     <meta name="theme-color" content="#ffffff">
     <!-- END: FAVICONS SETUP -->
 
-    <title>Encrypt And Decrypt Text - App</title>
+    <title>Generate Random Email IDs - APP</title>
 </head>
 
 <body onload="loadNavigationBar()">
 <div class="container">
     <div id="displayContentForNavBar"></div>
 
-    <h1>APP - Text Encryption & Decryption (OpenPGP)</h1>
+    <h1>APP - Generate Random Email IDs</h1>
 
-    <button type="submit" class="btn btn-primary" onclick="readAllFiles();">Read all files</button>
+    <button type="submit" class="btn btn-primary" onclick="printMultipleRandomEmailIds();">Generate 5 Random Email IDs</button>
+    <hr>
+    <h2>Email IDs will appear below</h2>
+    <div class='p-3 bg-warning rounded' id='finalEmailAddressBlock'></div>
    
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
