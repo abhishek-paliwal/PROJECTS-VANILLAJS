@@ -15,31 +15,22 @@ async function fetchDataFromTextFileUrl(url) {
     }
 
 /*****************************************/
-async function createSingleRandomEmailId() {
+async function printMultipleRandomEmailIds() {
     let url1 = 'https://www.abhishekpali.us/apps/app03-create-random-email-id/js/list-colors.txt' ;   
     let url2 = 'https://www.abhishekpali.us/apps/app03-create-random-email-id/js/list-species.txt' ;
     //
     const colors = await fetchDataFromTextFileUrl(url1);
     const species = await fetchDataFromTextFileUrl(url2);
-    // get random element from array
-    let randomSpecies = species[Math.floor(Math.random()*species.length)];
-    let randomColor = colors[Math.floor(Math.random()*colors.length)];
-    //console.log(randomSpecies);
-    //console.log(randomColor);
-    //
-    finalEmailAddress = randomColor + randomSpecies + randomColor.length.toString() + randomSpecies.length.toString() + '@ MYDOMAIN.COM' ; 
-    //console.log(finalEmailAddress)  ;
-    //
-    return finalEmailAddress ; 
-}
-
-/*****************************************/
-async function printMultipleRandomEmailIds() {
-    let tmp = [] ; 
+    // get random elements from array
     let singleEmailId = [] ; 
     for (i=0 ; i<5; i++) {
-        tmp[i] = await createSingleRandomEmailId() ; 
-        singleEmailId[i] = tmp[i] ;
+        let randomSpecies = species[Math.floor(Math.random()*species.length)];
+        let randomColor = colors[Math.floor(Math.random()*colors.length)];
+        singleEmailId[i] = '<strong>' + randomColor + '</strong>' + randomSpecies + randomColor.length.toString() + randomSpecies.length.toString() + '@ MYDOMAIN.COM' ; 
+        //console.log(randomSpecies);
+        //console.log(randomColor);
+        //console.log(singleEmailId[i]);
     }
     document.getElementById("finalEmailAddressBlock").innerHTML = singleEmailId.join('<br><br>') ;
 }
+
